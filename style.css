@@ -1,0 +1,35 @@
+* { 
+  box-sizing: border-box;
+}
+
+body { 
+  background-color: #34495e;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif; 
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  height: 80vh; 
+  margin: 0;
+  overflow: hidden;
+}
+
+h1 { 
+  margin: 20px 0 0;
+}
+
+.game-container {
+  padding: 20px 30px;
+  margin: auto;
+  position: relative; 
+  // because we have stuff inside of it that needs to be positioned absolute(top, left). And if you want to position sth absolute, it's parent has to be relative
+  height: 350px; 
+  width: 450px;
+}
+
+.figure-container { 
+  fill: transparent; 
+  stroke: white; 
+  stroke-width: 4px; 
+  stroke-linecap: round; 
+}
