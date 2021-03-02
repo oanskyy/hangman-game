@@ -3,12 +3,14 @@ const wordEl = document.getElementById('word');
 const wrongLettersEl = document.getElementById('wrong-letters'); 
 const playAgainBtn = document.getElementById('play-button'); 
 const popup = document.getElementById('popup-container'); 
-const notification = dcoument.getElementById('notification-container'); 
+const notification = document.getElementById('notification-container'); 
 const finalMessage = document.getElementById('final-message'); 
 const figureParts = document.querySelectorAll('.figure-part');
 
-const words = ['application', 'programming', 'interface', 'golum']; 
+// Can make this later a fetch request to some backend where you have a DB of words
+const words = ['application', 'programming', 'golum', 'pernicious', 'perenial']; 
 
+// Select random word from the words array
 let selectedWord = words[Math.floor(Math.random() * words.length)];
 
 const correctLetters = []; 
@@ -24,22 +26,26 @@ function displayWord() {
         `<span class="letter">
           ${correctLetters.includes(letter) ? letter : ''}
         </span>`)
-      .join('')
-    } 
+      .join('')} 
   `;
 
+// Use regEx to replace the new line character \n 
+// with just an empty string '' and we want to do it globally g
   const innerWord = wordEl.innerText.replace(/\n/g, '');
+
+//  Check if we won
     if(innerWord === selectedWord) { 
       finalMessage.innerText = 'Congratulations! You won!'; 
       popup.style.display = 'flex'; 
     }
 }
 
+
 // Update the wrong letters 
 function updateWrongLettersEl() { 
   // Display wrong letters
   wrongLettersEl.innerHTML = `
-  ${wrongLetters.length > 0 '<p>Wrong</p>' : ''}
+  ${wrongLetters.length > 0 ? '<p>Wrong</p>' : ''}
   ${wrongLetters.map(letter => `<span>${letter}</span>`)}
   `;
 
