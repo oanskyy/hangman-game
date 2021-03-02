@@ -122,10 +122,10 @@ h1 {
   transition: transform 0.3s ease-out; 
 }
 
-.notification-container p { 
-  margin: 0; 
+.notification-container p {
+  margin: 0;
 }
 
-.notification-container .show { 
+.notification-container.show {
   transform: translateY(-50px);
 }

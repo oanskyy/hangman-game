@@ -8,7 +8,7 @@ const finalMessage = document.getElementById('final-message');
 const figureParts = document.querySelectorAll('.figure-part');
 
 // Can make this later a fetch request to some backend where you have a DB of words
-const words = ['application', 'programming', 'golum', 'pernicious', 'perenial']; 
+const words = ['peruse', 'pertinent', 'golum', 'pernicious', 'perennial']; 
 
 // Select random word from the words array
 let selectedWord = words[Math.floor(Math.random() * words.length)];
@@ -43,6 +43,7 @@ function displayWord() {
 
 // Update the wrong letters 
 function updateWrongLettersEl() { 
+
   // Display wrong letters
   wrongLettersEl.innerHTML = `
   ${wrongLetters.length > 0 ? '<p>Wrong</p>' : ''}
@@ -75,8 +76,9 @@ function showNotification() {
   }, 2000); 
 }
 
-// Keydown letter press 
+// Keydown letter press event
 window.addEventListener('keydown', e => { 
+  // we only want it to fire when we hit letters, which are between the 65-90 range
   if (e.keyCode >= 65 && e.keyCode <= 90) { 
     const letter = e.key;
 
